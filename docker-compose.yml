@@ -5,8 +5,8 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/postgres
+      - DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/cinema
       - POSTGRES_USER=primo
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=armory
+      - POSTGRES_DB=cinema
     restart: unless-stopped

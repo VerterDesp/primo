@@ -1,11 +1,16 @@
+#Main
 server:
-  port: 8001
+  port: 8080
 
+#Database, exception messages provider
 spring:
   application:
     name: primo-register
+  messages:
+    basename: "api_error_messages"
+    fallback-to-system-locale: false
   datasource:
-    url: jdbc:postgresql://localhost:5432/armory
+    url: jdbc:postgresql://localhost:5432/cinema
     username: primo
     password: password
     driver-class-name: org.postgresql.Driver
@@ -18,3 +23,9 @@ spring:
         format_sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+#JWT config
+jwt:
+  secret: 66546A576E5A7234753778214125442A472D4B6150645267556B587032733576
+  expiration:
+    minutes: 30
