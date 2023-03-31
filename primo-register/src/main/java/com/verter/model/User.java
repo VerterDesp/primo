@@ -1,6 +1,5 @@
 package com.verter.model;
 
-import com.verter.config.ConstraintsConstants;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -13,6 +12,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
+import static com.verter.config.ConstraintsConstants.*;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,13 +25,13 @@ public class User implements UserDetails {
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
 
-  @Size(min = ConstraintsConstants.USER_NAME_MIN_SIZE, max = ConstraintsConstants.USER_NAME_MAX_SIZE)
+  @Size(min = USER_NAME_MIN_SIZE, max = USER_NAME_MAX_SIZE)
   private String firstName;
 
-  @Size(min = ConstraintsConstants.USER_NAME_MIN_SIZE, max = ConstraintsConstants.USER_NAME_MAX_SIZE)
+  @Size(min = USER_NAME_MIN_SIZE, max = USER_NAME_MAX_SIZE)
   private String lastName;
 
-  @Size(min = ConstraintsConstants.USER_EMAIL_MIN_SIZE, max = ConstraintsConstants.USER_EMAIL_MAX_SIZE)
+  @Size(min = USER_EMAIL_MIN_SIZE, max = USER_EMAIL_MAX_SIZE)
   private String email;
 
   private String phoneNumber;
