@@ -1,11 +1,5 @@
 spring:
-  rabbitmq:
-    host: localhost
-    port: 15672
-    username: primo
-    password: password
-    exchange: message_exchange
-    routingKey: message_routing_key
-
-server:
-  port: 8000
+  application:
+    name: primo-payment
+  config:
+    import: "optional:configserver:http://localhost:8002"
