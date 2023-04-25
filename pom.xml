@@ -11,14 +11,20 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>primo-register</module>
+		<module>primo-auth</module>
+        <module>primo-payment</module>
+        <module>primo-email-sender</module>
+		<module>primo-registry</module>
+		<module>primo-config</module>
+		<module>primo-gateway</module>
 	</modules>
 
 	<properties>
 		<maven.compiler.source>19</maven.compiler.source>
 		<maven.compiler.target>19</maven.compiler.target>
 		<testcontainers.version>1.17.6</testcontainers.version>
-		<spring.boot.dependencies.version>3.0.4</spring.boot.dependencies.version>
+		<spring.boot.dependencies.version>3.0.6</spring.boot.dependencies.version>
+		<spring-cloud.version>2022.0.2</spring-cloud.version>
 	</properties>
 
 	<dependencyManagement>
@@ -27,6 +33,14 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
 				<version>${spring.boot.dependencies.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -78,5 +92,16 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<repositories>
+		<repository>
+			<id>netflix-candidates</id>
+			<name>Netflix Candidates</name>
+			<url>https://artifactory-oss.prod.netflix.net/artifactory/maven-oss-candidates</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 </project>

@@ -1,12 +1,27 @@
 version: "3.8"
 services:
+  rabbitMQ:
+    container_name: rabbitMQ
+    image: rabbitmq:3.11.13-management
+    environment:
+      RABBITMQ_DEFAULT_USER: primo
+      RABBITMQ_DEFAULT_PASS: password
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  zipkin:
+    container_name: zipkin
+    image: openzipkin/zipkin:2.24
+    ports:
+      - "9411:9411"
   primo-db:
-    image: postgres
+    container_name: postgres
+    image: postgres:15.2
     ports:
       - "5432:5432"
     environment:
-      - DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/cinema
+      - DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/store
       - POSTGRES_USER=primo
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=cinema
+      - POSTGRES_DB=store
     restart: unless-stopped
